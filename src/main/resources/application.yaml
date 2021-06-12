@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://user-test:fCihqNnipj3Uny5@sicred-test.w45zr.mongodb.net/sicred-test
+      authentication-database: admin
+
+
