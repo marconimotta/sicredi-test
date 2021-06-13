@@ -46,7 +46,6 @@ public class AgendaServiceImpl implements AgendaService {
 
 	@Override
 	public AgendaResponseDTO save(final AgendaRequestDTO agendaRequest) {
-
 		final Agenda agenda = agendaRepository.save(Agenda.builder().subject(agendaRequest.getSubject()).build());
 		return AgendaResponseDTO.convertEntityToDTO(agenda);
 	}

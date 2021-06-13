@@ -1,0 +1,74 @@
+br/com/sicredi/feign/config/DefaultClientConfig.java
+ br.com.sicredi.feign.config.DefaultClientConfig
+br/com/sicredi/document/VoteSession.java
+ br.com.sicredi.document.VoteSession
+ br.com.sicredi.document.VoteSession$VoteSessionBuilder
+br/com/sicredi/exceptions/ValidationFieldException.java
+ br.com.sicredi.exceptions.ValidationFieldException
+br/com/sicredi/exceptions/InternalServerErrorException.java
+ br.com.sicredi.exceptions.InternalServerErrorException
+br/com/sicredi/document/Associate.java
+ br.com.sicredi.document.Associate
+ br.com.sicredi.document.Associate$AssociateBuilder
+br/com/sicredi/dto/VoteSessionResponseDTO.java
+ br.com.sicredi.dto.VoteSessionResponseDTO
+ br.com.sicredi.dto.VoteSessionResponseDTO$VoteSessionResponseDTOBuilder
+br/com/sicredi/controller/AgendaController.java
+ br.com.sicredi.controller.AgendaController
+br/com/sicredi/service/UserIntegrateClientServiceImpl.java
+ br.com.sicredi.service.UserIntegrateClientServiceImpl
+br/com/sicredi/dto/AgendaResponseDTO.java
+ br.com.sicredi.dto.AgendaResponseDTO
+ br.com.sicredi.dto.AgendaResponseDTO$AgendaResponseDTOBuilder
+br/com/sicredi/enums/StatusToVoteEnum.java
+ br.com.sicredi.enums.StatusToVoteEnum
+br/com/sicredi/exceptions/UnprocessableEntityException.java
+ br.com.sicredi.exceptions.UnprocessableEntityException
+br/com/sicredi/dto/AgendaRequestDTO.java
+ br.com.sicredi.dto.AgendaRequestDTO
+br/com/sicredi/service/AgendaServiceImpl.java
+ br.com.sicredi.service.AgendaServiceImpl
+br/com/sicredi/document/Vote.java
+ br.com.sicredi.document.Vote
+ br.com.sicredi.document.Vote$VoteBuilder
+br/com/sicredi/repository/AssociateRespository.java
+ br.com.sicredi.repository.AssociateRespository
+br/com/sicredi/SicrediTestJavaApplication.java
+ br.com.sicredi.SicrediTestJavaApplication
+br/com/sicredi/repository/AgendaRepository.java
+ br.com.sicredi.repository.AgendaRepository
+br/com/sicredi/dto/VoteSessionRequestDTO.java
+ br.com.sicredi.dto.VoteSessionRequestDTO
+br/com/sicredi/dto/VoteResponseDTO.java
+ br.com.sicredi.dto.VoteResponseDTO
+ br.com.sicredi.dto.VoteResponseDTO$VoteResponseDTOBuilder
+br/com/sicredi/dto/VoteRequestDTO.java
+ br.com.sicredi.dto.VoteRequestDTO
+br/com/sicredi/exceptions/ErrorMessage.java
+ br.com.sicredi.exceptions.ErrorMessage
+ br.com.sicredi.exceptions.ErrorMessage$ErrorMessageBuilder
+br/com/sicredi/util/Constants.java
+ br.com.sicredi.util.Constants
+br/com/sicredi/exceptions/GlobalExceptionHandler.java
+ br.com.sicredi.exceptions.GlobalExceptionHandler
+br/com/sicredi/exceptions/ForbiddenException.java
+ br.com.sicredi.exceptions.ForbiddenException
+br/com/sicredi/document/Agenda.java
+ br.com.sicredi.document.Agenda
+ br.com.sicredi.document.Agenda$AgendaBuilder
+br/com/sicredi/exceptions/APIException.java
+ br.com.sicredi.exceptions.APIException
+br/com/sicredi/service/UserIntegrateClientService.java
+ br.com.sicredi.service.UserIntegrateClientService
+br/com/sicredi/exceptions/NotFoundException.java
+ br.com.sicredi.exceptions.NotFoundException
+br/com/sicredi/feign/UserIntegrateClient.java
+ br.com.sicredi.feign.UserIntegrateClient
+br/com/sicredi/exceptions/BadRequestException.java
+ br.com.sicredi.exceptions.BadRequestException
+br/com/sicredi/service/AgendaService.java
+ br.com.sicredi.service.AgendaService
+br/com/sicredi/dto/UserIntegrateStatusDTO.java
+ br.com.sicredi.dto.UserIntegrateStatusDTO
+br/com/sicredi/exceptions/UnauthorizedException.java
+ br.com.sicredi.exceptions.UnauthorizedException

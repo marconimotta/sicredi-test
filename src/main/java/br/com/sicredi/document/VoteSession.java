@@ -5,15 +5,17 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class VoteSession {
 
+	@Setter
 	private List<Vote> votes;
 
 	private Long totalVotes;
@@ -21,7 +23,7 @@ public class VoteSession {
 	private Long votesYes;
 
 	private Long votesNo;
-
+	@Setter
 	private LocalDateTime closeDate;
 
 	public void updateVotesCount(final boolean choosedVote) {

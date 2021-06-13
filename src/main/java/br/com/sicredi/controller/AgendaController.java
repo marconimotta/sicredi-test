@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Rest to agenda methods")
 @RestController
-@RequestMapping(value = "/agenda")
+@RequestMapping(value = "api/agenda/v1")
 public class AgendaController {
 
 	@Autowired

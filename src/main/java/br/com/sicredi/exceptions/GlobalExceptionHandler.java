@@ -32,6 +32,7 @@ public class GlobalExceptionHandler {
 	private MessageSource messageSource;
 
 	@ExceptionHandler(APIException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	protected ResponseEntity<ErrorMessage> processAPIException(final APIException ex) {
 		final ResponseStatus status = ex.getClass().getDeclaredAnnotation(ResponseStatus.class);
 		logE(ex);
@@ -40,6 +41,7 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(MissingServletRequestParameterException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	protected ResponseEntity<ErrorMessage> missingRequestParameterException(
 			final MissingServletRequestParameterException ex) {
 		logE(ex);
@@ -48,12 +50,14 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(Exception.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	protected ResponseEntity<ErrorMessage> processException(final Exception ex) {
 		logE(ex);
 		return responseEntityReturn(Constants.UNEXPECTED_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@ExceptionHandler(HttpMessageNotReadableException.class)
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	protected ResponseEntity<ErrorMessage> processHttpMessageNotReadableException(
 			final HttpMessageNotReadableException ex) {
 		logE(ex);
@@ -67,42 +71,49 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(BindException.class)
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	public ResponseEntity<ErrorMessage> processBindException(final BindException ex) {
 		logE(ex);
 		return badRequest(ex);
 	}
 
 	@ExceptionHandler(InternalServerErrorException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseEntity<ErrorMessage> processInternalServerErrorException(final InternalServerErrorException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@ExceptionHandler(NotFoundException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	public ResponseEntity<ErrorMessage> processNotFoundException(final NotFoundException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.NOT_FOUND);
 	}
 
 	@ExceptionHandler(UnauthorizedException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	public ResponseEntity<ErrorMessage> processUnauthorizedException(final UnauthorizedException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.UNAUTHORIZED);
 	}
 
 	@ExceptionHandler(ValidationFieldException.class)
+	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 	public ResponseEntity<ErrorMessage> validationFieldException(final ValidationFieldException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.UNPROCESSABLE_ENTITY);
 	}
 
 	@ExceptionHandler(ForbiddenException.class)
+	@ResponseStatus(value = HttpStatus.FORBIDDEN)
 	public ResponseEntity<ErrorMessage> processUnauthorizedException(final ForbiddenException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.FORBIDDEN);
 	}
 
 	@ExceptionHandler(UnprocessableEntityException.class)
+	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 	public ResponseEntity<ErrorMessage> processUnprocessableEntityException(final UnprocessableEntityException ex) {
 		logE(ex);
 		return responseEntityReturn(ex.getError().getError(), HttpStatus.UNPROCESSABLE_ENTITY);

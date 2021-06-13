@@ -28,9 +28,9 @@ public class ErrorMessage implements Serializable {
   private int statusCode;
   private String error;
 
-  @Builder.Default
-  @JsonInclude(Include.NON_EMPTY)
-  private List<String> details = Collections.synchronizedList(new ArrayList<>());
+	@Builder.Default
+	@JsonInclude(Include.NON_EMPTY)
+	private List<String> details = Collections.synchronizedList(new ArrayList<>());
 
   public void addError(final String error) {
     details.add(error);

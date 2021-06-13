@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class VoteSessionResponseDTO {
 
+
+	@Setter
 	private List<VoteResponseDTO> votes;
 
 	private Long totalVotes;

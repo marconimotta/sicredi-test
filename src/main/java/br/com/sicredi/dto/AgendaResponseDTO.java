@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,6 +25,7 @@ public class AgendaResponseDTO {
 
 	private String subject;
 
+	@Setter
 	private VoteSessionResponseDTO voteSession;
 
 	public static AgendaResponseDTO convertEntityToDTO(final Agenda agenda) {
