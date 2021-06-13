@@ -16,9 +16,20 @@ public class VoteSession {
 
 	private List<Vote> votes;
 
-	private boolean open;
+	private Long totalVotes;
+
+	private Long votesYes;
+
+	private Long votesNo;
 
 	private LocalDateTime closeDate;
 
+	public void updateVotesCount(final boolean choosedVote) {
+		totalVotes++;
+		if (choosedVote)
+			votesYes++;
+		else
+			votesNo++;
+	}
 
 }

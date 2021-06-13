@@ -1,6 +1,6 @@
 package br.com.sicredi.document;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,10 @@ import lombok.ToString;
 @ToString
 public class Vote {
 
-	@DBRef
-	private Associate associate;
+	private String cpf;
 
 	private boolean choosedVote;
+
+	private LocalDateTime dateVote;
 
 }

@@ -20,19 +20,23 @@ public class VoteSessionResponseDTO {
 
 	private List<VoteResponseDTO> votes;
 
-	private boolean open;
+	private Long totalVotes;
+
+	private Long voteYes;
+
+	private Long votesNo;
 
 	private LocalDateTime closeDate;
 
 	public static VoteSessionResponseDTO convertEntityToDTO(final VoteSession voteSession) {
 		final VoteSessionResponseDTO voteSessionResponseDTO = VoteSessionResponseDTO.builder()
-				.open(voteSession.isOpen()).closeDate(voteSession.getCloseDate()).build();
+				.totalVotes(voteSession.getTotalVotes()).voteYes(voteSession.getVotesYes())
+				.votesNo(voteSession.getVotesNo())
+				.closeDate(voteSession.getCloseDate()).build();
 		if (Objects.nonNull(voteSession.getVotes())) {
 			voteSessionResponseDTO.setVotes(VoteResponseDTO.convertListEntityToDTO(voteSession.getVotes()));
 		}
-
 		return voteSessionResponseDTO;
-
 	}
 
 }

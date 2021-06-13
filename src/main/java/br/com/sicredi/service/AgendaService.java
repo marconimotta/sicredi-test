@@ -4,6 +4,8 @@ import java.util.List;
 
 import br.com.sicredi.dto.AgendaRequestDTO;
 import br.com.sicredi.dto.AgendaResponseDTO;
+import br.com.sicredi.dto.VoteRequestDTO;
+import br.com.sicredi.dto.VoteResponseDTO;
 import br.com.sicredi.dto.VoteSessionRequestDTO;
 
 
@@ -17,5 +19,5 @@ public interface AgendaService {
 
 	AgendaResponseDTO openVoteSession(VoteSessionRequestDTO voteSessionRequest);
 
-	AgendaResponseDTO update(AgendaRequestDTO agendaRequest);
+	VoteResponseDTO registerVote(VoteRequestDTO voteRequestDTO);
 }

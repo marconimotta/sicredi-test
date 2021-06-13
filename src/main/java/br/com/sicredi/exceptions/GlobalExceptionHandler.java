@@ -1,7 +1,5 @@
 package br.com.sicredi.exceptions;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -29,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler {
 
 	private static final String EXCEPTION_LOG_MSG = "e=%s,m=%s";
-	private static final String BAD_REQUEST_MSG = "Invalid request";
 
 	@Autowired
 	private MessageSource messageSource;
@@ -43,34 +40,24 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(MissingServletRequestParameterException.class)
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	protected ResponseEntity<ErrorMessage> missingRequestParameterException(
 			final MissingServletRequestParameterException ex) {
-		final ErrorMessage errorMessage = ErrorMessage.builder().statusCode(HttpStatus.BAD_REQUEST.value())
-				.error(String.format(Constants.FIELD_REQUEST_PARAM_REQUIRED, ex.getParameterName())).build();
 		logE(ex);
-		return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+		return responseEntityReturn(String.format(Constants.FIELD_REQUEST_PARAM_REQUIRED, ex.getParameterName()),
+				HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(Exception.class)
-	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	protected ResponseEntity<ErrorMessage> processException(final Exception ex) {
-		final ErrorMessage errorMessage = ErrorMessage.builder().statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
-				.error(Constants.UNEXPECTED_ERROR).build();
 		logE(ex);
-		return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+		return responseEntityReturn(Constants.UNEXPECTED_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@ExceptionHandler(HttpMessageNotReadableException.class)
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	protected ResponseEntity<ErrorMessage> processHttpMessageNotReadableException(
 			final HttpMessageNotReadableException ex) {
 		logE(ex);
-		final String errorMessage = "";
-
-		return new ResponseEntity<>(
-				ErrorMessage.builder().error(BAD_REQUEST_MSG).details(Arrays.asList(errorMessage)).build(),
-				HttpStatus.BAD_REQUEST);
+		return responseEntityReturn(Constants.MANDATORY_DATA_NOT_SENDED, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(InvalidFormatException.class)
@@ -124,11 +111,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(HttpStatusCodeException.class)
 	private ResponseEntity<ErrorMessage> handleHttpStatusCodeException(final HttpStatusCodeException ex) {
 		log.error("Http Error Status: " + ex.getStatusCode() + " Response: " + ex.getResponseBodyAsString());
-
-		final ErrorMessage errorMessage = new ErrorMessage(ex.getStatusCode().value(), ex.getMessage(),
-				new ArrayList<>());
-		return new ResponseEntity<>(errorMessage, ex.getStatusCode());
-
+		return responseEntityReturn(ex.getMessage(), ex.getStatusCode());
 	}
 
 	private ResponseEntity<ErrorMessage> responseEntityReturn(final String message, final HttpStatus httpStatus) {

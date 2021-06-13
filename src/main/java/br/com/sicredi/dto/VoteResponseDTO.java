@@ -1,5 +1,6 @@
 package br.com.sicredi.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,12 +18,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class VoteResponseDTO {
 
-	private String taxId;
+	private String cpf;
 
-	private boolean choosedVote;
+	private LocalDateTime dateVote;
 
 	public static VoteResponseDTO convertEntityToDTO(final Vote vote) {
-		return VoteResponseDTO.builder().taxId(vote.getAssociate().getCpf()).choosedVote(vote.isChoosedVote()).build();
+		return VoteResponseDTO.builder().cpf(vote.getCpf()).dateVote(vote.getDateVote()).build();
 	}
 
 	public static List<VoteResponseDTO> convertListEntityToDTO(final List<Vote> vote) {
