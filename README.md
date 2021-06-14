@@ -28,6 +28,13 @@ spring:
     mongodb:
       uri: <your_uri>
 ```
+## Swagger ui and api-docs
+
+### Swagger api-docs
+- After configuring the local environment, you can open swagger-api-docs through the url: http://localhost:<your_port>/api-docs
+
+### Swagger ui
+- After configuring the local environment, you can open swagger-ui through the url: http://localhost:<your_port>/swagger-ui.html
 
 ## Questions
 
