@@ -1,0 +1,6 @@
+br/com/sicredi/service/AgendaServiceImplTest.java
+ br.com.sicredi.service.AgendaServiceImplTest
+br/com/sicredi/mock/AgendaMock.java
+ br.com.sicredi.mock.AgendaMock
+br/com/sicredi/SicrediTestJavaApplicationTests.java
+ br.com.sicredi.SicrediTestJavaApplicationTests

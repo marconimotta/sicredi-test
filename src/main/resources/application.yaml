@@ -1,3 +1,10 @@
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /api-docs
+    enabled: true
 server:
   port: 8080
 spring:
@@ -5,5 +12,10 @@ spring:
     mongodb:
       uri: mongodb+srv://user-test:fCihqNnipj3Uny5@sicred-test.w45zr.mongodb.net/sicred-test
       authentication-database: admin
+      
+user-integrate:
+  host: https://user-info.herokuapp.com
+
+
 
 
