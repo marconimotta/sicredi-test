@@ -8,6 +8,11 @@ springdoc:
 server:
   port: 8080
 spring:
+  rabbitmq:
+    host: localhost
+    port: 15672
+    username: guest
+    password: guest
   data:
     mongodb:
       uri: mongodb+srv://user-test:fCihqNnipj3Uny5@sicred-test.w45zr.mongodb.net/sicred-test
@@ -15,6 +20,13 @@ spring:
       
 user-integrate:
   host: https://user-info.herokuapp.com
+sicredi:
+  rabbitmq:
+    exchange: sicredi.exchange
+    queue: sicredi.queue
+    rountingKey: sicredi.routingkey
+  
+  
 
 
 
